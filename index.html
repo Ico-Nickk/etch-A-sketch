@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleSheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mainBox">
+
+    </div>
+
+    <script>
+        const parentContainer = document.querySelector(".mainBox");
+
+        function createASquare (num) {
+            for (let i = 0; i < num; i++) {
+                const square = document.createElement("div");
+                square.classList.add("square");
+                parentContainer.appendChild(square);
+            };
+        };
+
+        createASquare(256);
+
+        const boxes = document.querySelectorAll(".square");
+        
+        boxes.forEach(box => {
+            box.addEventListener("mouseover", e => {
+                box.setAttribute("style", "background-color: white;");
+            });
+        });
+
+        
+        
+
+    </script>
+    
+</body>
+</html>
