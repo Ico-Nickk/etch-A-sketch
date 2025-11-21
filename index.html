@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="mainButton">click me!</button>
     <div class="mainBox">
-
     </div>
 
     <script>
@@ -22,8 +22,6 @@
             };
         };
 
-        createASquare(256);
-
         const boxes = document.querySelectorAll(".square");
         
         boxes.forEach(box => {
@@ -32,8 +30,15 @@
             });
         });
 
-        
-        
+        const bttn = document.getElementById("mainButton");
+
+        bttn.addEventListener("click", () => {
+            let boxNum = prompt("enter grid number");
+            createASquare(boxNum);
+            console.log(boxNum);
+
+        });
+  
 
     </script>
     
