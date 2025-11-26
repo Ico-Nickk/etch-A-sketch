@@ -30,30 +30,24 @@
                 box[i].style.width = squareDimen;
                 box[i].style.height = squareDimen;
             }
-        }
-
-        const boxes = document.querySelectorAll(".square");
-        
-        boxes.forEach(box => {
-            box.addEventListener("mouseover", e => {
-                box.setAttribute("style", "background-color: white;");
-            });
-        }); */
+        } */
 
         const bttn = document.getElementById("mainButton");
 
         bttn.addEventListener("click", () => {
-            let boxNum = prompt("enter grid number");
-            if (boxNum < 101) {
-                createASquare(boxNum);
-                setDimension(boxNum);
-                console.log(boxNum);
+            removeSquares(parentContainer);
+            const numEntry = prompt("enter number of divs").toString();
+            console.log(numEntry);
+            const totalDivs = numEntry * numEntry
+            const dimEntry = 960/numEntry;
+            console.log(totalDivs);
+            if (numEntry < 101) {
+                createDivs(totalDivs, dimEntry);
             } else {
                 alert("number entered is more than 100")
             };
 
         });
-
 
         function createDivs(numOfDivs, divDimen) {
             for (let i = 0; i < numOfDivs; i++){
@@ -62,14 +56,18 @@
                 square.style.width = `${divDimen}px`;
                 square.style.height = `${divDimen}px`;
                 square.style.backgroundColor = "black";
+                square.addEventListener("mouseover", e => {
+                    square.style.background = "white";
+                })
                 parentContainer.appendChild(square);
             };
         };
 
-        const numEntry = prompt("enter number of divs").toString();
-        const dimEntry = 960/Math.sqrt(numEntry);
-
-        createDivs(numEntry, dimEntry);
+        function removeSquares(parentNode) {
+            while (parentNode.lastChild) {
+                parentNode.removeChild(parentNode.lastChild);
+            };
+        };
 
         /*const testBox = document.getElementById("testBox");
         testBox.style.setProperty("background-color", "black");
