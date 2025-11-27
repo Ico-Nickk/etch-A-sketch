@@ -19,7 +19,7 @@
 
         bttn.addEventListener("click", () => {
             removeSquares(parentContainer);
-            const numEntry = prompt("enter number of divs").toString();
+            const numEntry = prompt("Enter grid size (up to 100)!").toString();
             console.log(numEntry);
             const totalDivs = numEntry * numEntry
             const dimEntry = 960/numEntry;
